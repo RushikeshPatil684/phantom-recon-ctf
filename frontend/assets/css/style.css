@@ -1,0 +1,318 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', 'Monaco', 'Consolas', monospace;
+    background-color: #000000;
+    color: #00ff88;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 30px #00ff88;
+    letter-spacing: 3px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 1024px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+}
+
+.window {
+    background-color: #0a0a0a;
+    border: 2px solid #00ff88;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3),
+                0 0 30px rgba(0, 255, 136, 0.1),
+                inset 0 0 15px rgba(0, 255, 136, 0.05);
+    overflow: hidden;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.window-header {
+    background-color: #001a0f;
+    padding: 10px 15px;
+    border-bottom: 1px solid #00ff88;
+    display: flex;
+    align-items: center;
+}
+
+.window-title {
+    font-weight: bold;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.window-content {
+    padding: 15px;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-size: 0.9em;
+    line-height: 1.6;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    position: relative;
+}
+
+/* Tools Section Styles */
+.tools-section .window-content {
+    font-family: 'Courier New', monospace;
+    background-color: #000000;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+.tools-section .window-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tools-section .window-content::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+.tools-section .window-content::-webkit-scrollbar-thumb {
+    background: #00ff88;
+    border-radius: 4px;
+}
+
+.tools-section .window-content::-webkit-scrollbar-thumb:hover {
+    background: #00cc6a;
+}
+
+/* Terminal Section Styles */
+.terminal-window {
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3),
+                0 0 30px rgba(255, 0, 0, 0.1),
+                inset 0 0 15px rgba(255, 0, 0, 0.05);
+}
+
+.terminal-window .window-header {
+    border-bottom-color: #ff0000;
+}
+
+/* Unlocked Terminal Styles */
+.terminal-window-unlocked {
+    border-color: #00ff88;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3),
+                0 0 30px rgba(0, 255, 136, 0.1),
+                inset 0 0 15px rgba(0, 255, 136, 0.05);
+}
+
+.terminal-window-unlocked .window-header {
+    border-bottom-color: #00ff88;
+}
+
+.terminal-window-unlocked .terminal-header {
+    border-bottom-color: #00ff88;
+}
+
+.terminal-content {
+    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0;
+    overflow: hidden;
+}
+
+.terminal-header {
+    padding: 15px;
+    border-bottom: 1px solid #ff0000;
+}
+
+.terminal-locked {
+    text-align: center;
+}
+
+.restricted-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ff0000;
+    text-shadow: 0 0 10px #ff0000;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.password-prompt {
+    font-size: 0.9em;
+    color: #ff6666;
+    letter-spacing: 1px;
+}
+
+.terminal-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
+}
+
+.terminal-output {
+    flex: 1;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    text-shadow: 0 0 2px rgba(0, 255, 136, 0.3);
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+}
+
+.prompt {
+    color: #00ff88;
+    margin-right: 10px;
+    user-select: none;
+}
+
+.terminal-input {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #00ff88;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+    caret-color: #00ff88;
+}
+
+.terminal-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.terminal-output .error {
+    color: #ff0000;
+    text-shadow: 0 0 5px #ff0000;
+}
+
+.terminal-output .success {
+    color: #00ff88;
+    text-shadow: 0 0 5px #00ff88;
+    font-weight: bold;
+}
+
+.terminal-output .line {
+    margin-bottom: 5px;
+}
+
+/* Auto-scroll animation */
+.tools-section .window-content {
+    scroll-behavior: smooth;
+}
+
+/* Glowing effect for active elements */
+.window:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5),
+                0 0 40px rgba(0, 255, 136, 0.2),
+                inset 0 0 20px rgba(0, 255, 136, 0.1);
+}
+
+.terminal-window:hover {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5),
+                0 0 40px rgba(255, 0, 0, 0.2),
+                inset 0 0 20px rgba(255, 0, 0, 0.1);
+}
+
+.terminal-window-unlocked:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5),
+                0 0 40px rgba(0, 255, 136, 0.2),
+                inset 0 0 20px rgba(0, 255, 136, 0.1);
+}
+
+/* Scanline effect - subtle CRT monitor feel */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.08),
+        rgba(0, 0, 0, 0.08) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    pointer-events: none;
+    z-index: 1000;
+    animation: flicker 3s infinite ease-in-out;
+}
+
+@keyframes flicker {
+    0%, 100% {
+        opacity: 0.95;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Enhanced text glow for terminal output */
+.terminal-output .line {
+    text-shadow: 0 0 3px rgba(0, 255, 136, 0.4),
+                 0 0 6px rgba(0, 255, 136, 0.2);
+}
+
+.terminal-output .hint {
+    color: #ffaa00;
+    text-shadow: 0 0 5px rgba(255, 170, 0, 0.5);
+    font-style: italic;
+}
+
+.terminal-output .hint-header {
+    color: #00ffff;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    font-weight: bold;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHANTOM RECON INTERFACE</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PHANTOM RECON INTERFACE</h1>
+        </header>
+
+        <main>
+            <!-- recon note: audit target node 10.13.37.5 -->
+            <!-- Section 1: Fake hacking tools output window -->
+            <section class="tools-section">
+                <div class="window">
+                    <div class="window-header">
+                        <span class="window-title">RECON TOOLS</span>
+                    </div>
+                    <div class="window-content" id="toolsOutput">
+                        <!-- Fake logs will be appended here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Locked CLI terminal window -->
+            <section class="terminal-section">
+                <div class="window terminal-window">
+                    <div class="window-header">
+                        <span class="window-title">TERMINAL</span>
+                    </div>
+                    <div class="window-content terminal-content">
+                        <div class="terminal-header">
+                            <div class="terminal-locked">
+                                <p class="restricted-text">RESTRICTED TERMINAL</p>
+                                <p class="password-prompt">ENTER PASSWORD TO UNLOCK</p>
+                            </div>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-output" id="terminalOutput"></div>
+                            <div class="terminal-input-line">
+                                <span class="prompt">root@phantom:~$</span>
+                                <input type="text" 
+                                       id="terminalInput" 
+                                       class="terminal-input" 
+                                       autocomplete="off"
+                                       spellcheck="false">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="assets/js/fakeTools.js"></script>
+    <script src="assets/js/terminal.js"></script>
+</body>
+</html>
